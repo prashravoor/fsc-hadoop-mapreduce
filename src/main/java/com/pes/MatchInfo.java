@@ -22,10 +22,12 @@ class Outcome {
         public void setWickets(Integer w) {
             this.wickets = w;
         }
+
     }
 
     private By by;
     private String winner;
+    private String method;
 
     public By getBy() {
         return by;
@@ -41,6 +43,13 @@ class Outcome {
 
     public void setWinner(String w) {
         this.winner = w;
+    }
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String m) {
+        method = m;
     }
 }
 
@@ -78,6 +87,7 @@ public class MatchInfo {
     private Toss toss;
     private List<String> umpires;
     private String venue;
+    private String neutral_venue;
 
     public String getCity() {
         return city;
@@ -174,5 +184,14 @@ public class MatchInfo {
     public void setVenue(String v) {
         venue = v;
     }
+
+    public String getNeutral_venue() {
+        return neutral_venue;
+    }
+
+    public void setNeutral_venue(String v) {
+        neutral_venue = v;
+    }
+
 
 }

@@ -12,11 +12,14 @@ public class Innings {
 
     @JsonProperty("2nd innings")
     private DeepInnings second;
+    
+    //private List<Map<String, DeepInnings>> innings;
 
     public static class Extra {
         private Integer legbyes;
         private Integer wides;
         private Integer noballs;
+        private Integer byes;
 
         public Integer getLegbyes() {
             return legbyes;
@@ -41,6 +44,28 @@ public class Innings {
         public void setNoballs(Integer n) {
             noballs = n;
         }
+
+        public void setByes(Integer n) {
+            byes = n;
+        }
+
+        public Integer getByes() {
+            return byes;
+        }
+    }
+
+    public static class Role
+    {
+        List<Map<String, String>> role;
+
+        public List<Map<String, String>> getRole()
+        {
+            return role;
+        }
+
+        public void setRole(List<Map<String,String>> v) {
+            role = v;
+        }
     }
 
     public static class Delivery {
@@ -50,6 +75,16 @@ public class Innings {
         private Runs runs;
         private Wicket wicket;
         private Extra extras;
+        private Role replacements;
+
+        public Role getReplacements()
+        {
+            return replacements;
+        }
+
+        public void setReplacements(Role r) {
+            replacements = r;
+        }
 
         public String getBatsman() {
             return batsman;
@@ -104,6 +139,7 @@ public class Innings {
         private Integer batsman;
         private Integer extras;
         private Integer total;
+        private Integer non_boundary;
 
         public Integer getBatsman() {
             return batsman;
@@ -127,6 +163,14 @@ public class Innings {
 
         public void setTotal(Integer t) {
             total = t;
+        }
+
+        public Integer getNon_boundary() {
+            return non_boundary;
+        }
+
+        public void setNon_boundary(Integer n) {
+            non_boundary = n;
         }
     }
 
@@ -196,4 +240,14 @@ public class Innings {
     public void setSecond(DeepInnings d) {
         second = d;
     }
+
+    /*
+    public List<Map<String, DeepInnings>> getInnings() {
+        return innings;
+    }
+
+    public void setInnings(List<Map<String, DeepInnings>> i) {
+        innings = i;
+    }
+    */
 }
