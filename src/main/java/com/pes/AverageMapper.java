@@ -18,11 +18,14 @@ public class AverageMapper extends Mapper<LongWritable, Text, Text, IntWritable>
         System.out.println("Input: " + value.toString());
         String[] values = value.toString().split(",");
         String[] dates = values[0].split("-");
-        if ( date.equals(dates[2]) )
+        System.out.println("The date for the row is " + dates[0]);
+        if ( date.equals(dates[0]) )
         {
+            System.out.println("Found date match! Batsman is: " + values[1]);
             if ( values[1].equals(batsman))
             {
-                context.write(new Text(values[1]), new IntWritable(Integer.parseInt(values[2])));
+                System.out.println("Found Batsman! Writing value: " + Integer.parseInt(values[2]));
+                context.write(new Text(values[0]), new IntWritable(Integer.parseInt(values[2])));
             }
         }
     }

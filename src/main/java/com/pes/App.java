@@ -36,8 +36,9 @@ public class App {
 		Job job = Job.getInstance(conf);
 		job.setJarByClass(App.class);
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(FloatWritable.class);
+		job.setOutputValueClass(IntWritable.class);
 		job.setMapperClass(AverageMapper.class);
+        job.setCombinerClass(AverageCombiner.class);
 		job.setReducerClass(AverageReducer.class);
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
